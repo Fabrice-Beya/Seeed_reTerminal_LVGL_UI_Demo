@@ -95,8 +95,8 @@
 #endif
 
 #if USE_MONITOR
-#  define MONITOR_HOR_RES     1280
-#  define MONITOR_VER_RES     720
+#  define MONITOR_HOR_RES     1000
+#  define MONITOR_VER_RES     580
 
 /* Scale window by this factor (useful when simulating small screens) */
 #  define MONITOR_ZOOM        1

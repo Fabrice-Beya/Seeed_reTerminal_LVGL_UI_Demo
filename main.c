@@ -14,13 +14,15 @@
 #include <SDL2/SDL.h>
 #include "lvgl/lvgl.h"
 
-#include "lv_reterminal_demos/lv_demo_reterminal_UI/demo_reterminal_UI.h"
+// #include "lv_reterminal_demos/lv_demo_reterminal_UI/demo_reterminal_UI.h"
 
 #include "lv_drivers/display/monitor.h"
 #include "lv_drivers/display/fbdev.h"
 #include "lv_drivers/indev/mouse.h"
 #include "lv_drivers/indev/keyboard.h"
 #include "lv_drivers/indev/mousewheel.h"
+
+#include "ui/ui.h"
 
 /*********************
  *      DEFINES
@@ -78,7 +80,7 @@ int main(int argc, char **argv)
   /*Initialize the HAL (display, input devices, tick) for LVGL*/
   hal_init();
 
-  demo_reTerminal_UI();
+  ui_init();
 
   while(1) {
       /* Periodically call the lv_task handler.

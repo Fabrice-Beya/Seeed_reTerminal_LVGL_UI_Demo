@@ -6,8 +6,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR})
 
-file(GLOB_RECURSE INCLUDES "lv_drivers/*.h" "lv_reterminal_demos/*.h"  "lvgl/*.h" "./*.h" )
-file(GLOB_RECURSE SOURCES  "lv_drivers/*.c" "lv_reterminal_demos/*.c" "lvgl/*.c" )
+file(GLOB_RECURSE INCLUDES "ui/*.h" "lv_drivers/*.h"  "lvgl/*.h" "./*.h" )
+file(GLOB_RECURSE SOURCES  "lv_drivers/*.c" "lvgl/*.c" )
+
+add_subdirectory(ui)
+include_directories(./ui)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin) 
 SET(CMAKE_CXX_FLAGS "-O3")
@@ -16,5 +19,5 @@ find_package(SDL2 REQUIRED SDL2)
 include_directories(${SDL2_INCLUDE_DIRS})
 add_executable(main main.c mouse_cursor_icon.c ${SOURCES} ${INCLUDES})
 add_compile_definitions(LV_CONF_INCLUDE_SIMPLE)
-target_link_libraries(main PRIVATE SDL2 )
+target_link_libraries(main PRIVATE SDL2 ui )
 add_custom_target (run COMMAND ${EXECUTABLE_OUTPUT_PATH}/main)

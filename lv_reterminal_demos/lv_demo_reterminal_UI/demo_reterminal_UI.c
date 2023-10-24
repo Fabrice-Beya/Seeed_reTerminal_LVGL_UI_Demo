@@ -164,12 +164,12 @@ void demo_reTerminal_UI(void)
 
     color_changer_create(tv);
 
-    evdev_lis3dh_init();
+    // evdev_lis3dh_init();
 
     static uint32_t user_data = 10;
     lv_timer_t * time_timer = lv_timer_create(time_timer_cb, 1,  &user_data);
     lv_timer_t * system_timer = lv_timer_create(system_timer_cb, 500,  &user_data);
-    lv_timer_t * accelerometer_timer = lv_timer_create(accelerometer_timer_cb, 50,  &user_data);
+    // lv_timer_t * accelerometer_timer = lv_timer_create(accelerometer_timer_cb, 50,  &user_data);
 }
 
 /**********************
